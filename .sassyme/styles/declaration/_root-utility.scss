@@ -1,0 +1,20 @@
+/**
+  a function that calculates the layout by
+*/
+@function grid-layout-size($size) {
+  @return calc(($fluid / $grid-columns-number) * $size);
+}
+
+// layout-size
+/**
+  a layout size calculator based on the layout size 
+*/
+
+@function layout-size($size) {
+  @if ($size == "auto") { // alow auto layout 
+    @return auto;
+  } @else {
+    @return calc($layout-size * $size); // 0 will always be 0 
+  }
+}
+

@@ -1,0 +1,56 @@
+/**
+This are the declaration that for sassyme theme that can be changed to be used through out the whole project to achieve stable 
+and uniform styling throughout your whole application, this is only used by plugins, builtin components to be styled, this is also good to used 
+for css projects however to provide better and faster devloping experience sass is used 
+*/
+
+
+// the grid-system-number of grids .col-0 ~ .col-{$grid-colums}
+$grid-columns-number: 12;
+// default each layout range from 1-20 so you can use .p-1 .p20 for padding
+$layout-range:20;
+// layout size by default it is 8 px therefore layouts like padding or .p or margin or .m has 8px for every range provided 
+$layout-size:8px;
+
+
+// # COLORS LIGHT MODE 
+
+$primary-color : #fff;
+$secondary-color: #fff;
+$tresiary-color: #fff;
+$success-color: #fff;
+$warning-color: #fff;
+$danger-color: #fff;
+$dark-color: #fff;
+$darker-color: #fff;
+$darkst-color: #fff;
+
+// # COLORS FOR THEMING DARK
+
+$dark-primary-color : #fff;
+$dark-secondary-color: #fff;
+$dark-tresiary-color: #fff;
+$dark-success-color: #fff;
+$dark-warning-color: #fff;
+$dark-danger-color: #fff;
+$dark-dark-color: #fff;
+$dark-darker-color: #fff;
+$dark-darkst-color: #fff;
+
+// #  COLORS FOR THEMING LIGHT
+
+$light-primary-color : #fff;
+$light-secondary-color: #fff;
+$light-tresiary-color: #fff;
+$light-success-color: #fff;
+$light-warning-color: #fff;
+$light-danger-color: #fff;
+$light-dark-color: #fff;
+$light-darker-color: #fff;
+$light-darkst-color: #fff;
+
+// # FONT FAMILY THEMES 
+$font-1 : helvetica;
+$font-2 : helvetica;
+$font-3 : helvetica;
+$font-4 : helvetica;

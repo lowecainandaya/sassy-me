@@ -1,0 +1,111 @@
+// this is included in the main file
+$grid-range: $grid-columns-number;
+
+/**
+create a list of styles for class .row, .offset .upset in different screen sizes 
+**/
+@mixin class-grids($breakpoint) {
+  @for $i from 1 through $grid-range {
+    // for columns
+    .#{$breakpoint}col-#{$i} {
+      flex: 0 0 auto;
+      max-width: grid-layout-size($i);
+    }
+
+    // for row 
+    .#{$breakpoint}row-#{$i} {
+      height: grid-layout-size($i);
+    }
+    // for gutter top
+    .#{$breakpoint}upset-#{$i} {
+      margin-top: grid-layout-size($i);
+    }
+    // for gutter left
+    .#{$breakpoint}offset-#{$i} {
+      margin-left: grid-layout-size($i);
+    }
+  }
+
+}
+
+// calculate  selector and width on breakpoints
+@function csonb($breakpoint) {
+  $xs: ".container, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm";
+  $sm: $xs;
+  $md: ".container, .container-xxl, .container-xl, .container-lg, .container-md";
+  $lg: ".container, .container-xxl, .container-xl, .container-lg";
+  $xl: ".container, .container-xxl, .container-xl";
+  $xxl: ".container, .container-xxl";
+
+  @if($breakpoint == $grid-breakpoints-xs) {
+    @return ($xs: $fluid);
+  }
+
+  @else if($breakpoint == $grid-breakpoints-sm) {
+    @return ($sm: $grid-breakpoints-sm);
+  }
+
+  @else if($breakpoint == $grid-breakpoints-md) {
+    @return ($md: $grid-breakpoints-md);
+  }
+
+  @else if($breakpoint == $grid-breakpoints-lg) {
+    @return ($lg: $grid-breakpoints-lg);
+  }
+
+  @else if($breakpoint == $grid-breakpoints-xl) {
+    @return ($xl : $grid-breakpoints-xl);
+  }
+
+  @else if($breakpoint == $grid-breakpoints-xxl) {
+    @return ($xxl: $grid-breakpoints-xxl);
+  }
+
+  @else {
+    @warn "Invalid breakpoint: #{$breakpoint}. Returning default for xs.";
+    @return $xs;
+  }
+}
+
+
+// creates a declaration based on the breakpoint
+@mixin createRule($breakpoint){
+  @each $selector, $value in csonb($breakpoint) {
+    #{$selector}{
+      width: $value;
+    }
+  }
+}
+ 
+
+/** 
+  generate .row .col based on the breakpoints 
+*/
+@mixin grid-direction($breakpoint){
+  // for columm based grid 
+  .#{$breakpoint}col{
+    flex-direction: column;
+  }
+ 
+  // for columm based grid 
+  .#{$breakpoint}col-revese{
+    flex-direction: column-reverse;
+  }
+
+
+  // for row based grid 
+  .#{$breakpoint}row{
+    flex-direction: row;
+  }
+
+  // for row revese based grid 
+  .#{$breakpoint}row-reverse{
+    flex-direction: row-reverse;
+  }
+
+}
+
+/**
+resolve the grid sytem as a mixin 
+*/
+

@@ -1,0 +1,41 @@
+
+/**
+  Create a media query at minimum
+*/
+
+@mixin start-responsive($breakpoint){
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+
+/**
+  Create a media query at maximum
+*/
+
+@mixin end-responsive($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+/**
+  A create media query at start and end 
+*/
+@mixin start-end-responsive($breakpoint-start, $breakpoint-end) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+
+/**
+  A .ssm wrapper that will wrap every other declaration to be 
+*/
+
+@mixin lib-wrap(){
+  .ssm {
+    @content;
+  }
+}
